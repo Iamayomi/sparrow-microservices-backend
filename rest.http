@@ -1,0 +1,19 @@
+
+#### LOGIN A USER
+POST http://localhost:4000/api/v1/users/login
+Content-Type: application/json
+
+{
+  "email": "ayomide@gmail.com",
+  "password": "Test123#@"
+}
+
+#### CREATE A NEW USER
+POST http://localhost:3000/api/v1/auth/register
+Content-Type: application/json
+
+{
+  "username": "Amodu moller",
+  "email": "ayoie@gmail.com",
+  "password": "Test123567888"
+}

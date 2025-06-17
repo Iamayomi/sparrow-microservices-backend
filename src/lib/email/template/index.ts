@@ -32,7 +32,7 @@ export const sendVerificationMail = async (username: string, token: string) => {
       <hr style="margin: 40px 0; border: none; border-top: 1px solid #ddd;" />
   
       <p style="font-size: 12px; color: #aaa; text-align: center;">
-        &copy; ${new Date().getFullYear()} Whispr Chat. All rights reserved.
+        &copy; ${new Date().getFullYear()} Sparrow Chat. All rights reserved.
       </p>
     </div>
   `,
@@ -69,7 +69,7 @@ export const sendCodeMail = async (subject?: string, username?: string, code?: n
       <hr style="margin: 40px 0; border: none; border-top: 1px solid #ddd;" />
   
       <p style="font-size: 12px; color: #aaa; text-align: center;">
-        &copy; ${new Date().getFullYear()} Whispr Chat. All rights reserved.
+        &copy; ${new Date().getFullYear()} Sparrow Chat. All rights reserved.
       </p>
     </div>
   `,

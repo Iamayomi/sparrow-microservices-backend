@@ -25,9 +25,6 @@ const authSchema = new mongoose.Schema<IAuth, IAuthModel>(
   { timestamps: true }
 );
 
-authSchema.index({ email: "text" });
-authSchema.index({ email: 1 }, { unique: true });
-
 authSchema.pre("save", async function save(next) {
   const schema = this;
   if (!schema.isModified("password")) next();

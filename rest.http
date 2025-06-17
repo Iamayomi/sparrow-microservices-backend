@@ -14,6 +14,9 @@ Content-Type: application/json
 
 {
   "username": "Amodu moller",
-  "email": "ayoie@gmail.com",
+  "email": "ayomidesherif2019@gmail.com",
   "password": "Test123567888"
 }
+
+#### CREATE A NEW USER
+POST http://localhost:3000/auth/callback/verify-email?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODUxYjM4OTRmMTU2MzA5ZWM3Y2I1ZGEiLCJlbWFpbCI6ImF5b21pZGVzaGVyaWYyMDE5QGdtYWlsLmNvbSIsImlhdCI6MTc1MDE4NDg0MSwiZXhwIjoxNzUwMTg1MTQxfQ.t0rM38W_5TWqa515S-i2wgc4S6ae55sEMHbdbVj_Jug

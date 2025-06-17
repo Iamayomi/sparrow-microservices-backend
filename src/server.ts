@@ -13,6 +13,10 @@ import "dotenv/config";
 export const app = express();
 
 initializeCloudinary();
+connectDatabase();
+connectToRabbitMq();
+initalizeImageWorker();
+initalizeEmailWorker();
 
 app.use(cors(corsOptions));
 app.use(helmet());
@@ -23,16 +27,12 @@ const PORT = process.env.PORT || 3001;
 app.use(limiter);
 
 app.use(errorHandler);
-app.use(logRequests);
+// app.use(logRequests);
 
 app.use("/api/v1/auth", authRoutes);
 
 export const server = app.listen(PORT, async () => {
   logger.info(`auth service is running on port ${PORT}`);
-  await connectDatabase();
-  await connectToRabbitMq();
-  initalizeImageWorker();
-  initalizeEmailWorker();
 });
 
 process.on("unhandledRejection", (error) => {

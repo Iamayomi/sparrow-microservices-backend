@@ -10,8 +10,6 @@ export const envs = {
   google_auth_user: process.env.GOOGLE_AUTH_USER as string,
   google_auth_password: process.env.GOOGLE_AUTH_PASSWORD as string,
 
-  nodeMailerPass: process.env.NODEMAILER_PASS as string,
-
   rabbitmqUrl: process.env.RABBITMQ_URL as string,
 
   jwtExpiration: process.env.JWT_EXPIRATION as string,

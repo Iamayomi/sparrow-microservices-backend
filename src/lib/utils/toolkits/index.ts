@@ -1,19 +1,21 @@
 import { Queue, Worker } from "bullmq";
 import { Types } from "mongoose";
-
 import { cloudinary } from "../../cloudinary";
 import { redisClient } from "../../cache";
 import { logger } from "../../logger";
 import { sendVerificationMail } from "../../email";
 import { publishEvent } from "../../queue";
+import { Email } from "../../email";
 
 export const emailQueue = new Queue("send-email", {
   connection: redisClient,
 });
 
-const sendEmail = async (username: string, token: string) => {
+const sendEmail = async (email: string, username: string, token: string) => {
   try {
-    const mail = await sendVerificationMail(username, token);
+    const mailOptions = await sendVerificationMail(username, token);
+
+    const mail = new Email().viaNodemailer({ ...mailOptions, to: email });
 
     if (mail) {
       logger.info("Mail successfully sent");
@@ -27,8 +29,8 @@ export const initalizeEmailWorker = () => {
   const worker = new Worker(
     "send-email",
     async (job: { data: { email: string; username: string; token: string } }) => {
-      const { username, token } = job.data;
-      await sendEmail(username, token);
+      const { email, username, token } = job.data;
+      await sendEmail(email, username, token);
     },
     {
       connection: redisClient,

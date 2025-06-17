@@ -4,7 +4,6 @@ import { IAuth, IAuthMethods } from "../models/interface";
 import { Avatar } from "../lib";
 
 // request
-
 export interface CustomRequest extends Request {
   user: {
     userId: string;

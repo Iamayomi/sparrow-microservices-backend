@@ -4,7 +4,7 @@ import { APP_NAME, envs } from "../../config";
 import { MailOptions } from "../../types";
 
 export class Email {
-  constructor(private sender: string = `${APP_NAME} <${process.env.NODEMAILER_EMAIL}>`) {
+  constructor(private sender: string = `${APP_NAME} <${process.env.GOOGLE_AUTH_USER}>`) {
     this.sender = sender;
   }
 
@@ -16,11 +16,11 @@ export class Email {
     const { from, html, text, subject, attachments, to } = payload;
 
     const transporter = nodemailer.createTransport({
-      service: "Gmail",
+      service: "gmail",
 
       auth: {
-        user: envs.google_auth_user,
-        pass: envs.google_auth_password,
+        user: process.env.GOOGLE_AUTH_USER,
+        pass: process.env.GOOGLE_AUTH_PASSWORD,
       },
     });
 

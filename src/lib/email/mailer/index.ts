@@ -1,6 +1,6 @@
 import nodemailer from "nodemailer";
 
-import { APP_NAME, envs } from "../../config";
+import { APP_NAME } from "../../config";
 import { MailOptions } from "../../types";
 
 export class Email {
